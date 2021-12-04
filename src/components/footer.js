@@ -17,11 +17,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <img
-          className="footer__logo"
-          src={image.sourceUrl}
-          alt={image.altText}
-        />
+        {image && (
+          <img
+            className="footer__logo"
+            src={image.sourceUrl}
+            alt={image.altText}
+          />
+        )}
       </div>
     </footer>
   )
