@@ -1,0 +1,21 @@
+.charity-card {
+  background-color: $color-white;
+  border-radius: 30px;
+  padding: 3rem;
+  margin-bottom: 2.5rem;
+
+  a {
+    margin-top: 2rem;
+  }
+}
+
+.charity-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5rem;
+
+  .charity-card {
+    flex-basis: 30%;
+  }
+}

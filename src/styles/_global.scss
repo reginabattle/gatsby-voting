@@ -1,0 +1,49 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $color-gray;
+  background-color: $color-blue-lighter;
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+  color: $color-blue-dark;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 5.4rem;
+  line-height: 1;
+  margin-bottom: 4rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2.5rem;
+}
+
+p {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $color-blue-light;
+  text-decoration: none;
+}
