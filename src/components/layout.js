@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const {
@@ -24,9 +25,7 @@ const Layout = ({ children }) => {
       <main>
         <div className="container">{children}</div>
       </main>
-      <footer>
-        <div className="container">© {new Date().getFullYear()}</div>
-      </footer>
+      <Footer />
     </>
   )
 }

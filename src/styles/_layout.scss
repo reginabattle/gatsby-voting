@@ -4,3 +4,14 @@
   margin: 0 auto;
   padding: 3rem;
 }
+
+.footer {
+  background-color: $color-white;
+  text-align: center;
+  padding: 3rem 0;
+
+  &__logo {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
