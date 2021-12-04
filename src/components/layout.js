@@ -21,10 +21,12 @@ const Layout = ({ children }) => {
   return (
     <>
       <Helmet title={title} />
-      <div className="container">
-        <main>{children}</main>
-        <footer>© {new Date().getFullYear()}</footer>
-      </div>
+      <main>
+        <div className="container">{children}</div>
+      </main>
+      <footer>
+        <div className="container">© {new Date().getFullYear()}</div>
+      </footer>
     </>
   )
 }
