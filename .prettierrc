@@ -1,7 +1,5 @@
 {
   "arrowParens": "avoid",
   "semi": false,
-  "rules": {
-    "react/react-in-jsx-scope": "off"
-  } 
+  "rules": {} 
 }
