@@ -1,9 +1,9 @@
 .hero {
   text-align: center;
-}
 
-.hero__icon {
-  display: block;
-  width: 300px;
-  margin: 0 auto 4rem;
+  &__icon {
+    display: block;
+    width: 300px;
+    margin: 0 auto 4rem;
+  }
 }
