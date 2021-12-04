@@ -1,7 +1,6 @@
 import React from "react"
 
 const Hero = ({ headline, description, image }) => {
-  console.log("image", image)
   return (
     <div className="hero">
       {image && (
