@@ -3,7 +3,11 @@
 
   &__icon {
     display: block;
-    width: 300px;
+    max-width: 200px;
     margin: 0 auto 4rem;
+
+    @media (min-width: 768px) {
+      max-width: 300px;
+    }
   }
 }
