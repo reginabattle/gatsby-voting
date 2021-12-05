@@ -4,15 +4,16 @@ import { useStaticQuery, graphql } from "gatsby"
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query logoQuery {
-      image: wpMediaItem(slug: { eq: "logo" }) {
+      image: wpMediaItem(slug: { eq: "sti-logo" }) {
         slug
-        title
         sourceUrl
+        altText
       }
     }
   `)
 
   const { image } = data
+  console.log(data)
 
   return (
     <footer className="footer">

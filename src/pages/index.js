@@ -1,28 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Card from "../components/card"
 import Hero from "../components/hero"
+import CharityList from "../components/charity-list"
 import "../styles/main.scss"
 
 const Home = ({ data }) => {
-  const { home } = data.wpPage
+  const { headline, description, image, charities } = data.wpPage.home
   return (
     <Layout>
-      <Hero
-        headline={home.headline}
-        description={home.description}
-        image={home.image}
-      />
-
-      <div className="charity-card-list">
-        {home.charities.map(item => {
-          const { charity } = item
-          return (
-            <Card key={item.id} title={item.title} data={charity.details} />
-          )
-        })}
-      </div>
+      <Hero headline={headline} description={description} image={image} />
+      <CharityList charities={charities} />
     </Layout>
   )
 }

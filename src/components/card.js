@@ -15,7 +15,9 @@ const Card = ({ title, data }) => {
         className="charity-card__description"
         dangerouslySetInnerHTML={{ __html: description }}
       />
-      <Link to={website}>Learn more</Link>
+      <Link to={website} aria-label={`Learn more about ${title}`}>
+        Learn more
+      </Link>
     </div>
   )
 }

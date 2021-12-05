@@ -21,7 +21,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Helmet title={title} />
+      <Helmet
+        title={title}
+        htmlAttributes={{
+          lang: "en",
+        }}
+      />
       <main>
         <div className="container">{children}</div>
       </main>

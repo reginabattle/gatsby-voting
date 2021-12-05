@@ -1,4 +1,7 @@
+/* Charity Card 
+------------------------ */
 .charity-card {
+  cursor: pointer;
   background-color: $color-white;
   border-radius: 30px;
   padding: 3rem;
@@ -7,6 +10,7 @@
   flex-direction: column;
 
   a {
+    font-weight: 700;
     margin-top: auto;
   }
 
@@ -20,7 +24,9 @@
   }
 }
 
-.charity-card-list {
+/* Charity (Card) List 
+------------------------ */
+.charity-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
