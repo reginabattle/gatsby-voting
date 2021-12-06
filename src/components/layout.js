@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           lang: "en",
         }}
       />
-      <main>
+      <main className="content">
         <div className="container">{children}</div>
       </main>
       <Footer />
