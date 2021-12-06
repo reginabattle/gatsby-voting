@@ -1,30 +1,48 @@
 import React, { useState } from "react"
 import Card from "./card"
 import Button from "./button"
+import { fetchAPI } from "../utils/api"
 
 const CharityList = ({ charities }) => {
   const [vote, setVote] = useState()
+  const [count, setCount] = useState(0)
 
-  const handleClick = title => {
-    console.log("vote", title)
-    setVote(title)
+  const handleClick = id => {
+    fetchAPI(`${process.env.API_URL}/${id}`).then(res => {
+      setVote(id)
+      setCount(res.acf.count)
+    })
   }
 
   const handleSubmit = () => {
-    console.log("submitted")
+    fetch(`${process.env.API_URL}/${vote}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + process.env.JWT_TOKEN,
+      },
+      body: JSON.stringify({
+        acf: {
+          count: count + 1,
+        },
+      }),
+    }).then(res => {
+      console.log("res", res)
+    })
   }
 
   return (
     <>
       <div className="charity-list">
         {charities.map(item => {
-          const { charity } = item
+          const { databaseId: id, title } = item
           return (
             <Card
-              key={item.id}
-              title={item.title}
-              data={charity.details}
-              callback={handleClick}
+              key={id}
+              title={title}
+              data={item}
+              callback={() => handleClick(id)}
             />
           )
         })}

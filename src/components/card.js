@@ -1,15 +1,10 @@
 import React from "react"
 
 const Card = ({ title, data, callback }) => {
-  const { description, website, logo } = data
+  const { description, website, logo } = data.charity.details
 
   return (
-    <div
-      className="charity-card"
-      onClick={() => callback(title)}
-      role="button"
-      tabIndex="0"
-    >
+    <div className="charity-card" onClick={callback} role="button" tabIndex="0">
       <img
         className="charity-card__image"
         src={logo.sourceUrl}
