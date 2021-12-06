@@ -13,8 +13,6 @@ const Footer = () => {
   `)
 
   const { image } = data
-  console.log(data)
-
   return (
     <footer className="footer">
       <div className="container">
