@@ -3,11 +3,18 @@
 .charity-card {
   cursor: pointer;
   background-color: $color-white;
-  border-radius: 30px;
+  border-radius: 2rem;
   padding: 3rem;
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
+  border: 2px solid transparent;
+  transition: 0.15s border-color linear;
+
+  &:hover,
+  &:focus {
+    border-color: $color-blue-light;
+  }
 
   a {
     margin-top: auto;
