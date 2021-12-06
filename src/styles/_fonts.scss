@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/yrc1fev.css");
+
 @font-face {
   font-family: "GT Walsheim";
   src: url("../assets/fonts/gt-walsheim-light.woff2") format("woff2"),
@@ -15,4 +17,4 @@
 }
 
 $font-sans-serif: "GT Walsheim", sans-serif;
-$font-mono: monospace;
+$font-mono: "input-mono", monospace;

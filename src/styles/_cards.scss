@@ -10,7 +10,6 @@
   flex-direction: column;
 
   a {
-    font-weight: 700;
     margin-top: auto;
   }
 
@@ -31,6 +30,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 5rem;
+
+  &__button {
+    padding: 2rem 0;
+    text-align: center;
+  }
 
   .charity-card {
     flex-basis: 100%;

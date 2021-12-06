@@ -30,11 +30,9 @@ const CharityList = ({ charities }) => {
         })}
       </div>
 
-      <Button
-        className="charity-list__button"
-        label="Support"
-        onClick={handleSubmit}
-      />
+      <div className="charity-list__button">
+        <Button label="Support" onClick={handleSubmit} />
+      </div>
     </>
   )
 }
