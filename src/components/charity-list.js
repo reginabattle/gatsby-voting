@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import Card from "./card"
 
 const CharityList = ({ charities }) => {
+  const [vote, setVote] = useState()
+
   const handleClick = title => {
-    console.log(title)
+    console.log("vote", title)
+    setVote(title)
   }
+
   return (
     <div className="charity-list">
       {charities.map(item => {
