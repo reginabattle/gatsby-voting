@@ -10,7 +10,7 @@ html {
 
 body {
   color: $color-gray;
-  font-family: "GT Walsheim", sans-serif;
+  font-family: $font-sans-serif;
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 1.4;
@@ -53,12 +53,31 @@ p {
 ------------------------ */
 a {
   color: $color-blue-light;
-  font-family: monospace;
+  font-family: $font-mono;
   text-decoration: none;
 
   &:hover,
   &:focus {
     text-decoration: underline;
+  }
+}
+
+/* Buttons
+------------------------ */
+button {
+  cursor: pointer;
+  color: $color-white;
+  background-color: $color-blue-light;
+  font-size: 1.6rem;
+  font-family: $font-mono;
+  border: none;
+  border-radius: 4rem;
+  text-align: center;
+  padding: 2rem 3rem;
+  transition: 0.15s background-color linear;
+
+  &:hover {
+    background-color: $color-blue-dark;
   }
 }
 
