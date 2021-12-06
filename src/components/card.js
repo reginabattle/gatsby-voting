@@ -1,10 +1,15 @@
 import React from "react"
-import { Link } from "gatsby"
 
-const Card = ({ title, data }) => {
+const Card = ({ title, data, callback }) => {
   const { description, website, logo } = data
+
   return (
-    <div className="charity-card">
+    <div
+      className="charity-card"
+      onClick={() => callback(title)}
+      role="button"
+      tabIndex="0"
+    >
       <img
         className="charity-card__image"
         src={logo.sourceUrl}
@@ -15,9 +20,14 @@ const Card = ({ title, data }) => {
         className="charity-card__description"
         dangerouslySetInnerHTML={{ __html: description }}
       />
-      <Link to={website} aria-label={`Learn more about ${title}`}>
+      <a
+        href={website}
+        aria-label={`Learn more about ${title}`}
+        target="_blank"
+        rel="noreferrer"
+      >
         Learn more
-      </Link>
+      </a>
     </div>
   )
 }
