@@ -1,17 +1,15 @@
 import React, { useState } from "react"
 import Card from "./card"
 import Button from "./button"
-import { fetchAPI, updateCount } from "../utils/api"
+import { updateCount } from "../utils/api"
 
 const CharityList = ({ charities }) => {
   const [vote, setVote] = useState()
   const [count, setCount] = useState(0)
 
-  const handleClick = id => {
-    fetchAPI(`${process.env.API_URL}/${id}`).then(res => {
-      setVote(id)
-      setCount(res.acf.count)
-    })
+  const handleClick = (id, votes) => {
+    setVote(id)
+    setCount(votes)
   }
 
   const handleSubmit = (e, id) => {
@@ -23,13 +21,15 @@ const CharityList = ({ charities }) => {
     <>
       <div className="charity-list">
         {charities.map(item => {
-          const { databaseId: id, title } = item
+          const { databaseId: id, title, votes } = item
+          const { count } = votes
+
           return (
             <Card
               key={id}
               title={title}
               data={item}
-              callback={() => handleClick(id)}
+              callback={() => handleClick(id, count)}
             />
           )
         })}
