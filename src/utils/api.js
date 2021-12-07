@@ -10,7 +10,7 @@ export async function fetchAPI(path) {
   return data
 }
 
-export async function postAPI(id, count) {
+export async function updateCount(id, count) {
   fetch(`${process.env.API_URL}/${id}`, {
     method: "POST",
     headers: {

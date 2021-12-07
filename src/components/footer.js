@@ -5,7 +5,6 @@ const Footer = () => {
   const data = useStaticQuery(graphql`
     query logoQuery {
       image: wpMediaItem(slug: { eq: "sti-logo" }) {
-        slug
         sourceUrl
         altText
       }

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Card from "./card"
 import Button from "./button"
-import { fetchAPI, postAPI } from "../utils/api"
+import { fetchAPI, updateCount } from "../utils/api"
 
 const CharityList = ({ charities }) => {
   const [vote, setVote] = useState()
@@ -15,7 +15,7 @@ const CharityList = ({ charities }) => {
   }
 
   const handleSubmit = (e, id) => {
-    !e.target.disabled && postAPI(id, count)
+    !e.target.disabled && updateCount(id, count)
     e.target.disabled = true
   }
 
