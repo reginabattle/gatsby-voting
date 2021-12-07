@@ -7,10 +7,11 @@ import "../styles/main.scss"
 
 const Home = ({ data }) => {
   const { headline, description, image, charities } = data.wpPage.home
+
   return (
     <Layout>
       <Hero headline={headline} description={description} image={image} />
-      <CharityList charities={charities} />
+      {charities && <CharityList charities={charities} />}
     </Layout>
   )
 }
@@ -30,6 +31,7 @@ export const pageQuery = graphql`
         charities {
           ... on WpCharity {
             id
+            databaseId
             title
             charity {
               details {
@@ -40,6 +42,9 @@ export const pageQuery = graphql`
                   sourceUrl
                 }
               }
+            }
+            votes {
+              count
             }
           }
         }

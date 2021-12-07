@@ -78,6 +78,15 @@ button {
   text-align: center;
   transition: 0.15s background-color linear;
 
+  &:disabled {
+    cursor: default;
+    background: $color-gray;
+
+    &:hover {
+      background-color: $color-gray;
+    }
+  }
+
   &:hover {
     background-color: $color-blue-dark;
   }
