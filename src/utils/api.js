@@ -9,3 +9,21 @@ export async function fetchAPI(path) {
   const data = await response.json()
   return data
 }
+
+export async function postAPI(id, count) {
+  fetch(`${process.env.API_URL}/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + process.env.JWT_TOKEN,
+    },
+    body: JSON.stringify({
+      acf: {
+        count: count + 1,
+      },
+    }),
+  }).then(res => {
+    console.log("res", res)
+  })
+}
