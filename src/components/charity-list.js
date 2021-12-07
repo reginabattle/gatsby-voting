@@ -3,7 +3,7 @@ import Card from "./card"
 import Button from "./button"
 import { updateCount } from "../utils/api"
 
-const CharityList = ({ charities }) => {
+const CharityList = ({ charities, visits }) => {
   const [vote, setVote] = useState()
   const [count, setCount] = useState(0)
 

@@ -1,5 +1,5 @@
 export async function updateCount(id, count) {
-  fetch(`${process.env.API_URL}/${id}`, {
+  fetch(`${process.env.WP_API_URL}/charities/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
