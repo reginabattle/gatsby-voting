@@ -21,7 +21,7 @@ export default Home
 
 export const pageQuery = graphql`
   query {
-    wpPage(title: { eq: "Home" }) {
+    wpPage(isFrontPage: { eq: true }) {
       home {
         headline
         description
