@@ -31,6 +31,7 @@ const CharityList = ({ charities, visits }) => {
               title={title}
               data={item}
               callback={() => handleClick(id, count)}
+              isActive={id === vote}
             />
           )
         })}
