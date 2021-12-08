@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import Card from "./card"
 import Button from "./button"
-import { updateCount } from "../utils/api"
+import { updateCount, updateVisits } from "../utils/api"
 
 const CharityList = ({ charities, visits }) => {
-  const [vote, setVote] = useState()
+  const [vote, setVote] = useState("")
   const [count, setCount] = useState(0)
 
   const handleClick = (id, votes) => {
@@ -13,8 +13,9 @@ const CharityList = ({ charities, visits }) => {
   }
 
   const handleSubmit = (e, id) => {
-    !e.target.disabled && updateCount(id, count)
-    e.target.disabled = true
+    if (!e.target.disabled) {
+      updateCount(e, id, count)
+    }
   }
 
   return (

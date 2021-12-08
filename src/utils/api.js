@@ -1,4 +1,4 @@
-export async function updateCount(id, count) {
+export async function updateCount(e, id, count) {
   fetch(`${process.env.GATSBY_API_URL}/charities/${id}`, {
     method: "POST",
     headers: {
@@ -12,7 +12,10 @@ export async function updateCount(id, count) {
       },
     }),
   }).then(res => {
-    console.log("res", res)
+    if (res.status === 200) {
+      e.target.disabled = true
+      e.target.innerText = "Thank you!"
+    }
   })
 }
 
@@ -30,6 +33,6 @@ export async function updateVisits(addresses, ip) {
       },
     }),
   }).then(res => {
-    console.log("res", res)
+    console.log("update visits", res)
   })
 }
