@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Card from "./card"
 import Button from "./button"
-import { updateCount, updateVisits } from "../utils/api"
+import { updateCount } from "../utils/api"
 
 const CharityList = ({ charities, visits }) => {
   const [vote, setVote] = useState("")
