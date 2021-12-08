@@ -4,7 +4,7 @@ export async function updateCount(e, id, count) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + process.env.JWT_TOKEN,
+      Authorization: "Bearer " + process.env.GATSBY_JWT_TOKEN,
     },
     body: JSON.stringify({
       acf: {
@@ -25,7 +25,7 @@ export async function updateVisits(addresses, ip) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + process.env.JWT_TOKEN,
+      Authorization: "Bearer " + process.env.GATSBY_JWT_TOKEN,
     },
     body: JSON.stringify({
       acf: {
