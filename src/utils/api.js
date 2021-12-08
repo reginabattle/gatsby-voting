@@ -13,8 +13,7 @@ export async function updateCount(e, id, count) {
     }),
   }).then(res => {
     if (res.status === 200) {
-      e.target.disabled = true
-      e.target.innerText = "Thank you!"
+      setTimeout(() => (e.target.innerText = "Thank you!"), 2000)
     }
   })
 }
