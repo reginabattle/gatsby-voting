@@ -4,7 +4,13 @@ const Card = ({ title, data, callback }) => {
   const { description, website, logo } = data.charity.details
 
   return (
-    <div className="charity-card" onClick={callback} role="button" tabIndex="0">
+    <div
+      className="charity-card"
+      onClick={callback}
+      onKeyPress={e => e.key === 13 && callback()}
+      role="button"
+      tabIndex="0"
+    >
       <img
         className="charity-card__image"
         src={logo.sourceUrl}
