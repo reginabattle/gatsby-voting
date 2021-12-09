@@ -12,7 +12,8 @@
   transition: 0.15s border-color linear;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.--active {
     border-color: $color-blue-light;
   }
 

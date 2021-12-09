@@ -4,7 +4,7 @@ export async function updateCount(e, id, count) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + process.env.JWT_TOKEN,
+      Authorization: "Bearer " + process.env.GATSBY_JWT_TOKEN,
     },
     body: JSON.stringify({
       acf: {
@@ -13,8 +13,7 @@ export async function updateCount(e, id, count) {
     }),
   }).then(res => {
     if (res.status === 200) {
-      e.target.disabled = true
-      e.target.innerText = "Thank you!"
+      setTimeout(() => (e.target.innerText = "Thank you!"), 2000)
     }
   })
 }
@@ -25,7 +24,7 @@ export async function updateVisits(addresses, ip) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + process.env.JWT_TOKEN,
+      Authorization: "Bearer " + process.env.GATSBY_JWT_TOKEN,
     },
     body: JSON.stringify({
       acf: {

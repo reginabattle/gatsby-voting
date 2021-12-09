@@ -63,35 +63,6 @@ a {
   }
 }
 
-/* Buttons
------------------------- */
-button {
-  cursor: pointer;
-  border: none;
-  color: $color-white;
-  background-color: $color-blue-light;
-  font-family: $font-mono;
-  font-size: 1.6rem;
-  font-weight: 400;
-  border-radius: 3rem;
-  padding: 2rem 3rem;
-  text-align: center;
-  transition: 0.15s background-color linear;
-
-  &:disabled {
-    cursor: default;
-    background: $color-gray;
-
-    &:hover {
-      background-color: $color-gray;
-    }
-  }
-
-  &:hover {
-    background-color: $color-blue-dark;
-  }
-}
-
 /* Images
 ------------------------ */
 img {

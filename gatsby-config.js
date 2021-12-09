@@ -8,11 +8,9 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL,
-        auth: {
-          jwt_user: process.env.JWT_USER,
-          jwt_pass: process.env.JWT_PASSWORD,
+        html: {
+          imageQuality: 100,
         },
-        includedRoutes: ["**/charities", "**/pages"],
       },
     },
     {

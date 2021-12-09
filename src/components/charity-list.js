@@ -1,13 +1,15 @@
 import React, { useState } from "react"
+import publicIp from "public-ip"
 import Card from "./card"
 import Button from "./button"
+import Loader from "./loader"
 import { updateCount, updateVisits } from "../utils/api"
-import publicIp from "public-ip"
 
 const CharityList = ({ charities, visits }) => {
   const [vote, setVote] = useState("")
   const [count, setCount] = useState(0)
-  const [currentIp, setCurrentIp] = useState("")
+  const [currentIp, setCurrentIp] = useState(" ")
+  const [loading, setLoading] = useState(false)
 
   ;(async () => {
     const ip = await publicIp.v4()
@@ -22,6 +24,8 @@ const CharityList = ({ charities, visits }) => {
 
   const handleSubmit = (e, id) => {
     if (!e.target.disabled) {
+      e.target.disabled = true
+      setLoading(true)
       updateCount(e, id, count)
     }
   }
@@ -39,13 +43,16 @@ const CharityList = ({ charities, visits }) => {
               title={title}
               data={item}
               callback={() => handleClick(id, count)}
+              isActive={id === vote}
             />
           )
         })}
       </div>
 
       <div className="charity-list__button">
-        <Button label="Support" onClick={e => handleSubmit(e, vote)} />
+        <Button onClick={e => handleSubmit(e, vote)}>
+          {loading ? <Loader /> : "Support"}
+        </Button>
       </div>
     </>
   )

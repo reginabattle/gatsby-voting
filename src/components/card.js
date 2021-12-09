@@ -1,10 +1,22 @@
 import React from "react"
+import classNames from "classnames"
 
-const Card = ({ title, data, callback }) => {
+const Card = ({ title, data, callback, isActive }) => {
   const { description, website, logo } = data.charity.details
 
+  const cardClasses = classNames({
+    "charity-card": true,
+    "--active": isActive,
+  })
+
   return (
-    <div className="charity-card" onClick={callback} role="button" tabIndex="0">
+    <div
+      className={cardClasses}
+      onClick={callback}
+      onKeyPress={e => e.key === 13 && callback()}
+      role="button"
+      tabIndex="0"
+    >
       <img
         className="charity-card__image"
         src={logo.sourceUrl}

@@ -1,0 +1,29 @@
+button {
+  cursor: pointer;
+  border: none;
+  color: $color-white;
+  background-color: $color-blue-light;
+  font-family: $font-mono;
+  font-size: 1.6rem;
+  font-weight: 400;
+  border-radius: 3rem;
+  padding: 2rem 3rem;
+  min-width: 165px;
+  min-height: 59px;
+  text-align: center;
+  transition: 0.15s background-color linear;
+
+  &:disabled {
+    cursor: default;
+    min-width: 165px;
+    background: $color-gray;
+
+    &:hover {
+      background-color: $color-gray;
+    }
+  }
+
+  &:hover {
+    background-color: $color-blue-dark;
+  }
+}
