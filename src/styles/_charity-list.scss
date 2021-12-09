@@ -1,0 +1,27 @@
+/* Charity List 
+------------------------ */
+.charity-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5rem;
+
+  &__button {
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .charity-card {
+    flex-basis: 100%;
+
+    @media (min-width: 768px) {
+      flex-basis: 30%;
+    }
+  }
+
+  &__message {
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem 0;
+  }
+}
