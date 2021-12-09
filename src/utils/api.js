@@ -18,7 +18,7 @@ export async function updateCount(e, id, count) {
   })
 }
 
-export async function updateVisits(addresses, ip) {
+export async function updateVisits(visits) {
   fetch(`${process.env.GATSBY_API_URL}/pages/2`, {
     method: "POST",
     headers: {
@@ -28,10 +28,8 @@ export async function updateVisits(addresses, ip) {
     },
     body: JSON.stringify({
       acf: {
-        ip_addresses: `${addresses}, ${ip}`,
+        ip_addresses: visits,
       },
     }),
-  }).then(res => {
-    console.log("update visits", res)
   })
 }
