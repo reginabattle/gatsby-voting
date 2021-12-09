@@ -1,34 +1,24 @@
 import React, { useState } from "react"
-import publicIp from "public-ip"
 import Card from "./card"
 import Button from "./button"
 import Loader from "./loader"
-import { updateCount, updateVisits } from "../utils/api"
+import { updateCount } from "../utils/api"
 
-const CharityList = ({ charities, visits }) => {
-  ;(async () => {
-    const ip = await publicIp.v4()
-    ip && setCurrentIp(ip)
-  })()
-
+const CharityList = ({ charities, hasVoted, callback }) => {
   const [vote, setVote] = useState("")
   const [count, setCount] = useState(0)
-  const [currentIp, setCurrentIp] = useState("")
   const [loading, setLoading] = useState(false)
-
-  const { ipAddresses } = visits
 
   const handleClick = (id, votes) => {
     setVote(id)
     setCount(votes)
-    updateVisits(ipAddresses, currentIp)
   }
 
   const handleSubmit = (e, id) => {
-    if (!e.target.disabled) {
-      e.target.disabled = true
+    if (!loading) {
       setLoading(true)
       updateCount(e, id, count)
+      callback()
     }
   }
 
@@ -52,9 +42,16 @@ const CharityList = ({ charities, visits }) => {
       </div>
 
       <div className="charity-list__button">
-        <Button onClick={e => handleSubmit(e, vote)}>
+        <Button
+          onClick={e => handleSubmit(e, vote)}
+          disabled={loading || hasVoted}
+        >
           {loading ? <Loader /> : "Support"}
         </Button>
+      </div>
+
+      <div className="charity-list__message">
+        <p>{hasVoted && "Sorry, it looks like you've already voted!"}</p>
       </div>
     </>
   )
