@@ -5,7 +5,7 @@ const Loader = () => {
     <div className="loading-dots">
       <div className="loading-dots__dot"></div>
       <div className="loading-dots__dot"></div>
-      <div class="loading-dots__dot"></div>
+      <div className="loading-dots__dot"></div>
     </div>
   )
 }

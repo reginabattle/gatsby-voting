@@ -1,17 +1,27 @@
 import React, { useState } from "react"
+import publicIp from "public-ip"
 import Card from "./card"
 import Button from "./button"
 import Loader from "./loader"
-import { updateCount } from "../utils/api"
+import { updateCount, updateVisits } from "../utils/api"
 
 const CharityList = ({ charities, visits }) => {
+  ;(async () => {
+    const ip = await publicIp.v4()
+    ip && setCurrentIp(ip)
+  })()
+
   const [vote, setVote] = useState("")
   const [count, setCount] = useState(0)
+  const [currentIp, setCurrentIp] = useState("")
   const [loading, setLoading] = useState(false)
+
+  const { ipAddresses } = visits
 
   const handleClick = (id, votes) => {
     setVote(id)
     setCount(votes)
+    // updateVisits(ipAddresses, currentIp)
   }
 
   const handleSubmit = (e, id) => {
