@@ -18,14 +18,16 @@ const Home = ({ data }) => {
   })()
 
   const getUserStatus = () => {
-    const visitedUser = ipAddresses.includes(currentIp)
+    const visitedUser = ipAddresses && ipAddresses.includes(currentIp)
     return visitedUser
   }
 
-  const filtered = ipAddresses
-    .split(", ")
-    .splice(1)
-    .filter(a => a !== currentIp)
+  const filtered =
+    ipAddresses &&
+    ipAddresses
+      .split(", ")
+      .filter(a => a !== "null")
+      .filter(a => a !== currentIp)
 
   const visits = `${filtered}, ${currentIp}`
   const hasVoted = getUserStatus()
