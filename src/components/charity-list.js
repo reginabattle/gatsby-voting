@@ -21,7 +21,7 @@ const CharityList = ({ charities, visits }) => {
   const handleClick = (id, votes) => {
     setVote(id)
     setCount(votes)
-    // updateVisits(ipAddresses, currentIp)
+    updateVisits(ipAddresses, currentIp)
   }
 
   const handleSubmit = (e, id) => {
