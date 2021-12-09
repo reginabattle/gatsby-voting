@@ -6,20 +6,22 @@ import Loader from "./loader"
 import { updateCount, updateVisits } from "../utils/api"
 
 const CharityList = ({ charities, visits }) => {
-  const [vote, setVote] = useState("")
-  const [count, setCount] = useState(0)
-  const [currentIp, setCurrentIp] = useState(" ")
-  const [loading, setLoading] = useState(false)
-
   ;(async () => {
     const ip = await publicIp.v4()
     setCurrentIp(ip)
   })()
 
+  const [vote, setVote] = useState("")
+  const [count, setCount] = useState(0)
+  const [currentIp, setCurrentIp] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const { ipAddresses } = visits
+
   const handleClick = (id, votes) => {
     setVote(id)
     setCount(votes)
-    updateVisits(visits.ipAddresses, currentIp)
+    // updateVisits(ipAddresses, currentIp)
   }
 
   const handleSubmit = (e, id) => {
