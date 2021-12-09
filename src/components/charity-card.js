@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
 
-const Card = ({ title, data, callback, isActive }) => {
+const CharityCard = ({ title, data, callback, isActive }) => {
   const { description, website, logo } = data.charity.details
 
   const cardClasses = classNames({
@@ -39,4 +39,4 @@ const Card = ({ title, data, callback, isActive }) => {
   )
 }
 
-export default Card
+export default CharityCard
