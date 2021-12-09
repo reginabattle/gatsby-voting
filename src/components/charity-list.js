@@ -8,7 +8,7 @@ import { updateCount, updateVisits } from "../utils/api"
 const CharityList = ({ charities, visits }) => {
   ;(async () => {
     const ip = await publicIp.v4()
-    setCurrentIp(ip)
+    ip && setCurrentIp(ip)
   })()
 
   const [vote, setVote] = useState("")
