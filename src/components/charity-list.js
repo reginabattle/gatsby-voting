@@ -8,17 +8,21 @@ const CharityList = ({ charities, hasVoted, callback }) => {
   const [vote, setVote] = useState("")
   const [count, setCount] = useState(0)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleClick = (id, votes) => {
+    setError(false)
     setVote(id)
     setCount(votes)
   }
 
   const handleSubmit = (e, id) => {
-    if (!loading) {
+    if (!loading && vote) {
       setLoading(true)
       updateCount(e, id, count)
       callback()
+    } else if (!vote) {
+      setError(true)
     }
   }
 
@@ -51,7 +55,10 @@ const CharityList = ({ charities, hasVoted, callback }) => {
       </div>
 
       <div className="charity-list__message">
-        <p>{hasVoted && "It looks like you've already voted."}</p>
+        <p>
+          {hasVoted && "It looks like you've already voted."}
+          {error && "Oops, you forgot to select a charity."}
+        </p>
       </div>
     </>
   )
