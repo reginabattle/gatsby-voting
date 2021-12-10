@@ -28,6 +28,7 @@ const CharityCard = ({ title, data, callback, isActive }) => {
         dangerouslySetInnerHTML={{ __html: description }}
       />
       <a
+        className="charity-card__link"
         href={website}
         aria-label={`Learn more about ${title}`}
         target="_blank"
