@@ -42,7 +42,10 @@ const CharityList = ({ charities, hasVoted, callback }) => {
       </div>
 
       <div className="charity-list__button">
-        <Button onClick={e => handleSubmit(e, vote)} disabled={loading}>
+        <Button
+          onClick={e => handleSubmit(e, vote)}
+          disabled={loading || hasVoted}
+        >
           {loading ? <Loader /> : "Support"}
         </Button>
       </div>
