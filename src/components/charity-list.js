@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import Card from "./card"
 import Button from "./button"
 import Loader from "./loader"
+import CharityCard from "./charity-card"
 import { updateCount } from "../utils/api"
 
 const CharityList = ({ charities, hasVoted, callback }) => {
@@ -30,7 +30,7 @@ const CharityList = ({ charities, hasVoted, callback }) => {
           const { count } = votes
 
           return (
-            <Card
+            <CharityCard
               key={id}
               title={title}
               data={item}
@@ -51,7 +51,7 @@ const CharityList = ({ charities, hasVoted, callback }) => {
       </div>
 
       <div className="charity-list__message">
-        <p>{hasVoted && "Sorry, it looks like you've already voted!"}</p>
+        <p>{hasVoted && "It looks like you've already voted."}</p>
       </div>
     </>
   )

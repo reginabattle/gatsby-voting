@@ -53,8 +53,7 @@ p {
 ------------------------ */
 a {
   color: $color-blue-light;
-  font-weight: 400;
-  font-family: $font-mono;
+  font-weight: 700;
   text-decoration: none;
 
   &:hover,
@@ -68,4 +67,15 @@ a {
 img {
   width: 100%;
   display: block;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

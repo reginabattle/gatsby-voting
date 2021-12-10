@@ -9,6 +9,15 @@
 
 .content {
   background-color: $color-blue-lighter;
+  padding-bottom: 5rem;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
 }
 
 /* Footer 
