@@ -64,9 +64,6 @@ export const pageQuery = graphql`
           sourceUrl
         }
       }
-      visits {
-        ipAddresses
-      }
     }
   }
 `
