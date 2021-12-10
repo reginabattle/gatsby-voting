@@ -17,7 +17,8 @@
     border-color: $color-blue-light;
   }
 
-  a {
+  &__link {
+    font-family: $font-mono;
     margin-top: auto;
   }
 

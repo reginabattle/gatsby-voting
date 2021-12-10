@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
 
-const Card = ({ title, data, callback, isActive }) => {
+const CharityCard = ({ title, data, callback, isActive }) => {
   const { description, website, logo } = data.charity.details
 
   const cardClasses = classNames({
@@ -28,6 +28,7 @@ const Card = ({ title, data, callback, isActive }) => {
         dangerouslySetInnerHTML={{ __html: description }}
       />
       <a
+        className="charity-card__link"
         href={website}
         aria-label={`Learn more about ${title}`}
         target="_blank"
@@ -39,4 +40,4 @@ const Card = ({ title, data, callback, isActive }) => {
   )
 }
 
-export default Card
+export default CharityCard
