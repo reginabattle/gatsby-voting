@@ -11,6 +11,14 @@
   background-color: $color-blue-lighter;
 }
 
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+}
+
 /* Footer 
 ------------------------ */
 .footer {
