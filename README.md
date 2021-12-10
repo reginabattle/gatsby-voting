@@ -2,7 +2,7 @@
 
 Landing page built with [Gatsby](https://www.gatsbyjs.com), [React](https://reactjs.org), and [WordPress](https://wordpress.org) as a headless CMS.
 
-Strategic Technology's Give Back allows users to vote for their favorite charity. Users are limited to one vote based on IP address.
+Strategic Technology's Give Back allows users to vote for their favorite charity.
 
 ## WordPress Setup
 
