@@ -9,6 +9,7 @@
 
 .content {
   background-color: $color-blue-lighter;
+  padding-bottom: 5rem;
 }
 
 .page-content {
@@ -16,7 +17,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 75vh;
+  padding-top: 5rem;
 }
 
 /* Footer 

@@ -42,16 +42,13 @@ const CharityList = ({ charities, hasVoted, callback }) => {
       </div>
 
       <div className="charity-list__button">
-        <Button
-          onClick={e => handleSubmit(e, vote)}
-          disabled={loading || hasVoted}
-        >
+        <Button onClick={e => handleSubmit(e, vote)} disabled={loading}>
           {loading ? <Loader /> : "Support"}
         </Button>
       </div>
 
       <div className="charity-list__message">
-        <p>{hasVoted && "Sorry, it looks like you've already voted!"}</p>
+        <p>{hasVoted && "It looks like you've already voted."}</p>
       </div>
     </>
   )

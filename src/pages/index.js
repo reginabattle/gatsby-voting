@@ -17,20 +17,20 @@ const Home = ({ data }) => {
     ip && setCurrentIp(ip)
   })()
 
-  const getUserStatus = () => {
-    const visitedUser = ipAddresses && ipAddresses.includes(currentIp)
-    return visitedUser
+  const getVoteStatus = () => {
+    const hasVoted = ipAddresses && ipAddresses.includes(currentIp)
+    return hasVoted
   }
 
   const filtered =
     ipAddresses &&
     ipAddresses
       .split(", ")
-      .filter(a => a !== "null" || a !== "null,")
+      .filter(a => a !== "null" && a !== "null,")
       .filter(a => a !== currentIp)
 
   const visits = `${filtered}, ${currentIp}`
-  const hasVoted = getUserStatus()
+  const voteStatus = getVoteStatus()
 
   return (
     <Layout>
@@ -38,7 +38,7 @@ const Home = ({ data }) => {
       {charities && (
         <CharityList
           charities={charities}
-          hasVoted={hasVoted}
+          hasVoted={voteStatus}
           callback={() => updateVisits(visits)}
         />
       )}

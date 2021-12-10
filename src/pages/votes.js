@@ -1,37 +1,73 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Button from "../components/button"
 import { resetCount } from "../utils/api"
 
 const Votes = ({ data }) => {
   const charities = data.page.nodes
+  const [pass, setPass] = useState("")
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const handleClick = () => {
-    charities.map(item => resetCount(item.databaseId))
+    if (isAdmin) {
+      charities.map(item => resetCount(item.databaseId))
+    }
+    setIsAdmin(false)
   }
+
+  const handleChange = e => {
+    setPass(e.target.value)
+  }
+
+  useEffect(() => {
+    if (pass === process.env.GATSBY_JWT_PASSWORD) {
+      setIsAdmin(true)
+    } else {
+      setIsAdmin(false)
+    }
+  }, [pass])
 
   return (
     <Layout>
       <div className="page-content">
-        <h1 className="page-header">Vote Count</h1>
+        <h1>Vote Count</h1>
         <p>Set the vote count for all fields back to zero.</p>
 
-        {charities.map(item => {
-          const { title, votes, databaseId: id } = item
-          const { count } = votes
-          return (
-            <div key={id}>
-              <h2>{`${title}: ${count === null ? 0 : count}`}</h2>
-            </div>
-          )
-        })}
+        <div className="vote-count">
+          {charities.map(item => {
+            const { title, votes, databaseId: id } = item
+            const { count } = votes
+            return (
+              <div className="vote-count__charity" key={id}>
+                <h3 className="vote-count__charity-title">{title}</h3>
+                <p className="vote-count__charity-count">
+                  {count === null ? 0 : count}
+                </p>
+              </div>
+            )
+          })}
+        </div>
 
-        <label className="sr-only" htmlFor="reset" hidden>
-          Reset
-        </label>
-        <button id="reset" name="reset" onClick={handleClick}>
-          Reset
-        </button>
+        <div className="vote-reset">
+          {!isAdmin && (
+            <input
+              type="text"
+              onChange={handleChange}
+              value={pass}
+              placeholder="Enter password to reset"
+            />
+          )}
+
+          {isAdmin && (
+            <>
+              <label className="sr-only" htmlFor="reset" hidden>
+                Reset the vote count
+              </label>
+              <Button onClick={handleClick}>Reset</Button>
+            </>
+          )}
+        </div>
       </div>
     </Layout>
   )
@@ -40,8 +76,8 @@ const Votes = ({ data }) => {
 export default Votes
 
 export const pageQuery = graphql`
-  query MyQuery {
-    page: allWpCharity {
+  query {
+    page: allWpCharity(sort: { fields: title, order: ASC }) {
       nodes {
         title
         databaseId
