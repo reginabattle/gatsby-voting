@@ -26,7 +26,7 @@ const Home = ({ data }) => {
     ipAddresses &&
     ipAddresses
       .split(", ")
-      .filter(a => a !== "null")
+      .filter(a => a !== "null" || a !== "null,")
       .filter(a => a !== currentIp)
 
   const visits = `${filtered}, ${currentIp}`
