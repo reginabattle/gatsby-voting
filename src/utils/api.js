@@ -20,18 +20,6 @@ export async function updateCount(e, id, count) {
   })
 }
 
-export async function updateVisits(visits) {
-  fetch(`${process.env.GATSBY_API_URL}/pages/2`, {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify({
-      acf: {
-        ip_addresses: visits,
-      },
-    }),
-  })
-}
-
 export async function resetCount(id) {
   fetch(`${process.env.GATSBY_API_URL}/charities/${id}`, {
     method: "POST",
