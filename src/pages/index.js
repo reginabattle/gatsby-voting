@@ -11,6 +11,12 @@ const Home = ({ data }) => {
   const [cookies, setCookie] = useCookies(process.env.GATSBY_COOKIE)
   const hasVoted = cookies[process.env.GATSBY_COOKIE] === "hasVoted"
 
+  const addCookie = () => {
+    setCookie("STS_GIVES_BACK", "hasVoted", {
+      path: "/",
+    })
+  }
+
   return (
     <Layout>
       <Hero headline={headline} description={description} image={image} />
@@ -18,9 +24,7 @@ const Home = ({ data }) => {
         <CharityList
           charities={charities}
           hasVoted={hasVoted}
-          callback={setCookie("STS_GIVES_BACK", "hasVoted", {
-            path: "/",
-          })}
+          callback={addCookie}
         />
       )}
     </Layout>
