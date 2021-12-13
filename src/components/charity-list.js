@@ -53,12 +53,15 @@ const CharityList = ({ charities, hasVoted, callback }) => {
         </div>
       )}
 
-      <div className="charity-list__message">
-        <p>
-          {hasVoted && "It looks like you've already voted."}
-          {error && "Oops, you forgot to select a charity."}
-        </p>
-      </div>
+      {hasVoted ||
+        (error && (
+          <div className="charity-list__message">
+            <p>
+              {hasVoted && "It looks like you've already voted."}
+              {error && "Oops, you forgot to select a charity."}
+            </p>
+          </div>
+        ))}
     </>
   )
 }
