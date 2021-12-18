@@ -37,7 +37,7 @@ module.exports = {
       options: {
         trackingIds: ["G-FVKSD6XGQK"],
         pluginConfig: {
-          head: false,
+          head: true,
           exclude: ["/preview/**"],
         },
       },
