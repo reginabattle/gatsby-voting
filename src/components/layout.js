@@ -28,6 +28,14 @@ const Layout = ({ children }) => {
           <html lang="en" amp />
           <title>{title}</title>
           <link rel="icon" href={favicon} />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVKSD6XGQK"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-FVKSD6XGQK');
+          </script>
         </Helmet>
         <main className="content">
           <div className="container">{children}</div>
