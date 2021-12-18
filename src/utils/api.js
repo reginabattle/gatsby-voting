@@ -1,11 +1,13 @@
-const formData = new FormData()
-formData.append("username", process.env.GATSBY_JWT_USER)
-formData.append("password", process.env.GATSBY_JWT_PASSWORD)
+const FormData = require("form-data")
+const form = new FormData()
+
+form.append("username", process.env.GATSBY_JWT_USER)
+form.append("password", process.env.GATSBY_JWT_PASSWORD)
 
 async function getToken() {
   let response = await fetch(process.env.GATSBY_TOKEN_URL, {
     method: "POST",
-    body: formData,
+    body: form,
   })
   let data = await response.json()
   return data
