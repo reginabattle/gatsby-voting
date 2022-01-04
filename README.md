@@ -16,10 +16,8 @@ The followig plugins are required to connect Gatsby to WordPress (get content).
 - [JWT Authentication for WP-API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api)
 
 #### Optional plugins
-Install, if using the provided theme.
-
 - [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields) - Add custom fields to posts
-- [Code Snippets](https://wordpress.org/plugins/code-snippets) - Dashboard customization
+- [Code Snippets](https://wordpress.org/plugins/code-snippets) - Dashboard customization, custom post types
 - [Deploy with NetlifyPress](https://wordpress.org/plugins/deploy-netlifypress) - Automatic or manual deploy, if using Netlify
 
 
