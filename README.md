@@ -1,4 +1,4 @@
-# Strategic Technology Give Back
+# Gatsby Voting App
 
 [Gatsby](https://www.gatsbyjs.com) site using [WordPress](https://wordpress.org) as a headless content management system. It allows users to vote for their favorite charity.
 
